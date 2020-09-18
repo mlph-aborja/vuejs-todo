@@ -6,7 +6,7 @@
 
         <div v-for="todo in allTodos" v-bind:key="todo.id">
             <div class="todo">
-                {{ todo.title }} <input type="checkbox" > Complete <button>Delete</button>
+                {{ todo.title }} <input v-model="todo.completed"  type="checkbox" @change="updateTodo(todo)"> Complete <button type="button" class="btn btn-danger" @click="removeTodo(todo)">Delete</button>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
     export default {
         computed: mapGetters(['allTodos']),
         methods: {
-            ...mapActions(['findAllTodos'])
+            ...mapActions(['findAllTodos', 'removeTodo', 'updateTodo'])
         },
         created() {
             this.findAllTodos();

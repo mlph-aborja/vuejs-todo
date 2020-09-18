@@ -1,6 +1,5 @@
 <template>
     <div class="container-sm">
-        <h3>Add Todo</h3>
         <div class="input-group">
             <input v-model="title" type="text" class="form-control" placeholder="Todo title" aria-label="Todo title" aria-describedby="button-addon4">
             <div class="input-group-append" id="button-addon4">

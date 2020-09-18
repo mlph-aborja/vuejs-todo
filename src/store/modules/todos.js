@@ -10,25 +10,43 @@ const getters = {
 };
 
 const actions = {
-    async addTodo({ commit }, newTodo) {
-        commit('create', newTodo);
+    async addTodo({ commit }, title) {
+        const newTodo = {
+            id: state.todos.length + 1,
+            title: title,
+            completed: false
+        }
+        const response = await Axios.post('https://jsonplaceholder.typicode.com/todos', newTodo);
+        commit('create', response.data);
     },
     async findAllTodos({ commit }) {
         const response = await Axios.get('https://jsonplaceholder.typicode.com/todos');
         commit('findAll', response.data);
+    },
+    async removeTodo({ commit }, todo) {
+        await Axios.delete(`https://jsonplaceholder.typicode.com/todos/${todo.id}`);
+        commit('remove', todo);
+    },
+    async updateTodo({ commit }, todo) {
+        const response = await Axios.put(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, todo );
+        commit('update', response.data);
     }
 };
 
 const mutations = {
     create: (state, todo) => {
-        const newTodo = {
-            id: state.todos.length + 1,
-            title: todo
-        }
-        state.todos.unshift(newTodo);
+        state.todos.unshift(todo);
     },
     findAll: (state, todos) => {
         state.todos = todos
+    },
+    remove: (state, todo) => {
+        const index = state.todos.findIndex(element => element.id === todo.id);
+        state.todos.splice(index, 1);
+    }, 
+    update: (state, todo) => {
+        const index = state.todos.findIndex(element => element.id === todo.id);
+        state.todos[index] = todo;
     }
 };
 
