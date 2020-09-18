@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 import VueRouter from 'vue-router';
-import AddTodo from './components/AddTodo';
+import Login from './components/Login';
 import Todos from './components/Todos';
 
 Vue.config.productionTip = false
@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: Todos },
-  { path: '/add-todo', component: AddTodo }
+  { path: '/login', component: Login }
 ]
 
 const router = new VueRouter({

@@ -3,7 +3,7 @@
     <h1>Todos</h1>
     <div>
       <router-link to="/">Go to Todos List</router-link> |
-      <router-link to="/add-todo">Go to Add Todo</router-link>
+      <router-link to="/login">Go to Login</router-link>
     </div>
     
     <router-view></router-view>
@@ -11,12 +11,10 @@
 </template>
 
 <script>
-// import Todos from './components/Todos.vue'
 
 export default {
   name: 'App',
   components: {
-    // Todos
   }
 }
 </script>
