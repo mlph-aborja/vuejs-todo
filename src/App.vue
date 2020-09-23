@@ -3,7 +3,7 @@
     <h1>Todos</h1>
     <div>
       <router-link to="/">Go to Todos List</router-link> |
-      <router-link to="/login">Go to Login</router-link>
+      <router-link to="/registration">Go to Login</router-link>
     </div>
     
     <router-view></router-view>

@@ -3,7 +3,7 @@ import App from './App.vue';
 import store from './store';
 import VueRouter from 'vue-router';
 import Vuelidate from 'vuelidate';
-import Login from './components/Login';
+import Registration from './components/Registration';
 import Todos from './components/Todos';
 
 Vue.config.productionTip = false
@@ -13,7 +13,7 @@ Vue.use(Vuelidate);
 
 const routes = [
   { path: '/', component: Todos },
-  { path: '/login', component: Login }
+  { path: '/registration', component: Registration }
 ]
 
 const router = new VueRouter({

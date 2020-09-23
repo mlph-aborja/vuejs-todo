@@ -1,6 +1,6 @@
 <template>
     <div class="container-sm" >
-        <h3>Login</h3>
+        <h3>Registration</h3>
         <form>
             <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -21,13 +21,13 @@
             </div>
             <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
                 <label class="password">Password</label>
-                <input id="password" class="form-control" :class="{ 'is-invalid': $v.password.$error }" v-model.trim="$v.password.$model"/>
+                <input id="password" type="password" class="form-control" :class="{ 'is-invalid': $v.password.$error }" v-model.trim="$v.password.$model"/>
             </div>
             <div class="error" v-if="!$v.password.required">Password is required.</div>
             <div class="error" v-if="!$v.password.minLength">Password must have at least {{ $v.password.$params.minLength.min }} letters.</div>
             <div class="form-group">
                 <label class="repeat-password">Repeat password</label>
-                <input id="repeat-password" class="form-control" :class="{ 'is-invalid': $v.repeatPassword.$error }" v-model.trim="$v.repeatPassword.$model"/>
+                <input id="repeat-password" type="password" class="form-control" :class="{ 'is-invalid': $v.repeatPassword.$error }" v-model.trim="$v.repeatPassword.$model"/>
             </div>
             <div class="error" v-if="!$v.repeatPassword.sameAsPassword">Passwords must be identical.</div>
             <button type="submit" v-bind:disabled="$v.$invalid" class="btn btn-primary">Submit</button>
